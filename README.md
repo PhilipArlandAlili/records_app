@@ -1,2 +1,1 @@
-# records_app
-FOR MAAM
+# Ma'am, naka-comment po yung code sa faker
