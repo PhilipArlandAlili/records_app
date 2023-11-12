@@ -21,12 +21,39 @@
 
 <body>
     <?php
-    require('config/config.php');
-    require('config/db.php');
+    require_once('config/config.php');
+    require_once('config/db.php');
 
+    // require 'vendor/autoload.php';
+    
+    // $faker = Faker\Factory::create();
+    
+    // if (!$conn) {
+    //     die("Connection failed: " . mysqli_connect_error());
+    // }
+    
+    // for ($i = 0; $i < 200; $i++) {
+    
+    //     $datelog = mysqli_real_escape_string($conn, $faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s'));
+    //     $documentcode = mysqli_real_escape_string($conn, $faker->numberBetween(100, 210));
+    //     $action = mysqli_real_escape_string($conn, $faker->randomElement(['IN', 'OUT', 'COMPLETE']));
+    //     $office = mysqli_real_escape_string($conn, $faker->numberBetween(1, 100));
+    //     $employee = mysqli_real_escape_string($conn, $faker->numberBetween(1, 100));
+    //     $remarks = mysqli_real_escape_string($conn, $faker->randomElement(['SIGNED', 'FOR APPROVAL']));
+    
+    //     $query = "INSERT INTO transaction(datelog, documentcode, action, office_id, employee_id, remarks) 
+    //             VALUES ('$datelog', '$documentcode', '$action','$office', '$employee', '$remarks')";
+    
+    //     $result = mysqli_query($conn, $query);
+    
+    //     if (!$result) {
+    //         die("Error: " . mysqli_error($conn));
+    //     }
+    // }
+    
     //gets the value sent over search form
     $search = isset($_GET['search']) ? $_GET['search'] : '';
-    
+
 
     //define total number of  results you want per page
     $results_per_page = 10;
@@ -40,21 +67,21 @@
     $number_of_page = ceil($number_of_result / $results_per_page);
 
     // determing which page number visitor is currently on
-    if(!isset($_GET['page'])) {
+    if (!isset($_GET['page'])) {
         $page = 1;
     } else {
         $page = $_GET['page'];
     }
 
     // determing the sql LIMIT starting number for the results on the display page
-    $page_first_result = ($page-1) * $results_per_page;
+    $page_first_result = ($page - 1) * $results_per_page;
 
 
     //Create query
     if (strlen($search) > 0) {
-        $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, office.name as office_name, CONCAT(employee.lastname, ", ", employee.firstname) as employee_fullname, transaction.remarks FROM employee, office, transaction WHERE transaction.employee_id = employee.id AND transaction.office_id = office.id AND transaction.documentcode = ' . $search . ' ORDER BY transaction.documentcode, transaction.datelog LIMIT '. $page_first_result . ',' . $results_per_page;
-    }else {
-        $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, office.name as office_name, CONCAT(employee.lastname, ", ", employee.firstname) as employee_fullname, transaction.remarks FROM employee, office, transaction WHERE transaction.employee_id = employee.id AND transaction.office_id = office.id ORDER BY transaction.documentcode, transaction.datelog LIMIT '. $page_first_result . ',' . $results_per_page;
+        $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, office.name as office_name, CONCAT(employee.lastname, ", ", employee.firstname) as employee_fullname, transaction.remarks FROM employee, office, transaction WHERE transaction.employee_id = employee.id AND transaction.office_id = office.id AND transaction.documentcode = ' . $search . ' ORDER BY transaction.documentcode, transaction.datelog LIMIT ' . $page_first_result . ',' . $results_per_page;
+    } else {
+        $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, office.name as office_name, CONCAT(employee.lastname, ", ", employee.firstname) as employee_fullname, transaction.remarks FROM employee, office, transaction WHERE transaction.employee_id = employee.id AND transaction.office_id = office.id ORDER BY transaction.documentcode, transaction.datelog LIMIT ' . $page_first_result . ',' . $results_per_page;
     }
     //Get result
     $result = mysqli_query($conn, $query);
@@ -66,44 +93,39 @@
     mysqli_close($conn);
 
     ?>
+
     <div class="wrapper">
         <div class="sidebar" data-image="../assets/img/sidebar-5.jpg" data-color="blue">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
             <div class="sidebar-wrapper">
                 <?php include('includes/sidebar.php'); ?>
             </div>
         </div>
         <div class="main-panel">
-            <!-- Navbar -->
             <?php include('includes/navbar.php'); ?>
-            <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="section">
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover">
-                                <br/>
+                            <div class="card strpied-tabled-with-hover" style="border-radius: 50px;">
+                                <br />
                                 <div class="col-md-12">
                                     <form action="transaction.php" method="GET">
-                                        <input type="text" name="search" />
-                                        <input type="submit" value="Search" class="btn btn-info btn-fill">
+                                        <input type="text" name="search" style="margin-top: 50px;">
+                                        <input type="submit" value="Search" class="btn btn-info btn-fill" style="">
                                     </form>
                                 </div>
                                 <div class="col-md-12">
                                     <a href="/transaction-add.php">
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Add New
+                                        <button type="submit" class="btn btn-info btn-fill pull-right"
+                                            style="margin-right: 20px;">Add New
                                             Transaction</button>
                                     </a>
                                 </div>
                                 <div class="card-header ">
                                     <h4 class="card-title">Transactions</h4>
-                                    <p class="card-category">Here is a subtitle for this table</p>
+                                    <p class="card-category">By: Philip Arland Alili</p>
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
@@ -145,9 +167,9 @@
                         </div>
                     </div>
                     <?php
-                        for ($page=1; $page <= $number_of_page; $page++) {
-                            echo '<a href="transaction.php?page='. $page . '">' . $page . '</a>';
-                        }
+                    for ($page = 1; $page <= $number_of_page; $page++) {
+                        echo '<a href="transaction.php?page=' . $page . '" style="color: white;">' . " " . $page . '</a>';
+                    }
                     ?>
                 </div>
             </div>

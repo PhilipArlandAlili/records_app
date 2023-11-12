@@ -21,9 +21,37 @@
 
 <body>
     <?php
-    require('config/config.php');
-    require('config/db.php');
 
+    require_once('config/config.php');
+    require_once('config/db.php');
+
+    require 'vendor/autoload.php';
+
+    // $faker = Faker\Factory::create();
+
+    // if (!$conn) {
+    //     die("Connection failed: " . mysqli_connect_error());
+    // }
+
+    // for ($i = 0; $i < 200; $i++) {
+
+    //     $name = mysqli_real_escape_string($conn, $faker->name);
+    //     $contactNum = mysqli_real_escape_string($conn, $faker->phoneNumber);
+    //     $email = mysqli_real_escape_string($conn, $faker->email);
+    //     $address = mysqli_real_escape_string($conn, $faker->address);
+    //     $city = mysqli_real_escape_string($conn, $faker->city);
+    //     $country = mysqli_real_escape_string($conn, $faker->country);
+    //     $postal = mysqli_real_escape_string($conn, $faker->postCode);
+
+    //     $query = "INSERT INTO office(name, contactNum, email, address, city, country, postal) 
+    //             VALUES ('$name', '$contactNum', '$email','$address', '$city', '$country', '$postal')";
+
+    //     $result = mysqli_query($conn, $query);
+
+    //     if (!$result) {
+    //         die("Error: " . mysqli_error($conn));
+    //     }
+    // }
     //define total number of  results you want per page
     $results_per_page = 25;
 
@@ -59,36 +87,29 @@
     ?>
     <div class="wrapper">
         <div class="sidebar" data-image="../assets/img/sidebar-5.jpg" data-color="blue">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
             <div class="sidebar-wrapper">
                 <?php include('includes/sidebar.php'); ?>
             </div>
         </div>
         <div class="main-panel">
-            <!-- Navbar -->
             <?php include('includes/navbar.php'); ?>
-            <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="section">
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover">
+                            <div class="card strpied-tabled-with-hover" style="border-radius: 50px;">
                                 <br />
                                 <div class="col-md-12">
                                     <a href="/office-add.php">
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Add New
+                                        <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-top: 40px; margin-right: 10px;">Add New
                                             Office</button>
                                     </a>
                                 </div>
                                 <div class="card-header ">
                                     <h4 class="card-title">Offices</h4>
-                                    <p class="card-category">Here is a subtitle for this table</p>
+                                    <p class="card-category">By: Philip Arland Alili</p>
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
@@ -129,7 +150,7 @@
                                                     <td>
                                                         <a href="/office-edit.php?id=<?php echo $office['id']; ?>">
                                                             <button type="submit"
-                                                                class="btn btn-warning btn-fill pull-right">Edit</button>
+                                                                class="btn btn-warning btn-fill pull-right" style="background-color: skyblue; border: 2px solid skyblue;">Edit</button>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -142,7 +163,7 @@
                     </div>
                     <?php
                     for ($page = 1; $page <= $number_of_page; $page++) {
-                        echo '<a href="office.php?page=' . $page . '">' . $page . '</a>';
+                        echo '<a href="office.php?page=' . $page . '" style="color: white;">' . " " . $page . '</a>';
                     }
                     ?>
                 </div>

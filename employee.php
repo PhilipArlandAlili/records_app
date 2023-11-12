@@ -21,9 +21,33 @@
 
 <body>
     <?php
-    require('config/config.php');
-    require('config/db.php');
+    require_once('config/config.php');
+    require_once('config/db.php');
 
+    // require 'vendor/autoload.php';
+
+    // $faker = Faker\Factory::create();
+
+    // if (!$conn) {
+    //     die("Connection failed: " . mysqli_connect_error());
+    // }
+
+    // for ($i = 0; $i < 200; $i++) {
+
+    //     $lastname = mysqli_real_escape_string($conn, $faker->lastname);
+    //     $firstname = mysqli_real_escape_string($conn, $faker->firstname);
+    //     $address = mysqli_real_escape_string($conn, $faker->address);
+    //     $office = mysqli_real_escape_string($conn, $faker->numberBetween(1, 100));
+
+    //     $query = "INSERT INTO employee(lastname, firstname, address, office_id) 
+    //             VALUES ('$lastname', '$firstname', '$address','$office')";
+
+    //     $result = mysqli_query($conn, $query);
+
+    //     if (!$result) {
+    //         die("Error: " . mysqli_error($conn));
+    //     }
+    // }
     //define total number of  results you want per page
     $results_per_page = 25;
 
@@ -78,17 +102,17 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover">
+                            <div class="card strpied-tabled-with-hover" style="border-radius: 50px;">
                                 <br />
                                 <div class="col-md-12">
                                     <a href="/employee-add.php">
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Add New
+                                        <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-top: 40px; margin-right: 20px;">Add New
                                             Employee</button>
                                     </a>
                                 </div>
                                 <div class="card-header ">
                                     <h4 class="card-title">Employees</h4>
-                                    <p class="card-category">Here is a subtitle for this table</p>
+                                    <p class="card-category">By: Philip Arland Alili</p>
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
@@ -117,7 +141,7 @@
                                                     <td>
                                                         <a href="/employee-edit.php?id=<?php echo $employee['id']; ?>">
                                                             <button type="submit"
-                                                                class="btn btn-warning btn-fill pull-right">Edit</button>
+                                                                class="btn btn-warning btn-fill pull-right" style="background-color: skyblue; border: 2px solid skyblue;">Edit</button>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -130,7 +154,7 @@
                     </div>
                     <?php
                     for ($page = 1; $page <= $number_of_page; $page++) {
-                        echo '<a href="employee.php?page=' . $page . '">' . $page . '</a>';
+                        echo '<a href="employee.php?page=' . $page . '" style="color: white;">' . " " . $page . '</a>';
                     }
                     ?>
                 </div>
