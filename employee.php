@@ -102,19 +102,19 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover" style="border-radius: 50px;">
+                            <div class="card strpied-tabled-with-hover" style="border-radius: 50px; padding-bottom: 20px;">
                                 <br />
-                                <div class="col-md-12">
-                                    <a href="/employee-add.php">
+                                <div class="col-md-12" style="text-align: end;">
+                                    <a href="/employee-add.php" >
                                         <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-top: 40px; margin-right: 20px;">Add New
-                                            Employee</button>
+                                            Employee <i class="nc-icon nc-badge"></i></button>
                                     </a>
                                 </div>
                                 <div class="card-header ">
                                     <h4 class="card-title">Employees</h4>
                                     <p class="card-category">By: Philip Arland Alili</p>
                                 </div>
-                                <div class="card-body table-full-width table-responsive">
+                                <div class="card-body table-full-width table-responsive" style="padding: 20px;">
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <th>Last Name</th>
