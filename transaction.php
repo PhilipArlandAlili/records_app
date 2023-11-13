@@ -108,26 +108,24 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover" style="border-radius: 50px;">
-                                <br />
-                                <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover" style="border-radius: 50px; padding-bottom: 20px;">
+                                <div class="col-md-12" style="text-align: end;">
                                     <form action="transaction.php" method="GET">
-                                        <input type="text" name="search" style="margin-top: 50px;">
-                                        <input type="submit" value="Search" class="btn btn-info btn-fill" style="">
+                                        <input type="text" name="search" style="margin-top: 30px;">
+                                        <input type="submit" value="Search" class="btn btn-info btn-fill">
                                     </form>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-12" style="text-align: end;">
                                     <a href="/transaction-add.php">
-                                        <button type="submit" class="btn btn-info btn-fill pull-right"
-                                            style="margin-right: 20px;">Add New
-                                            Transaction</button>
+                                        <button type="submit" class="btn btn-info btn-fill" style="margin-top: 15px;">Add New
+                                            Transaction <i class="nc-icon nc-icon nc-delivery-fast"></i></button>
                                     </a>
                                 </div>
                                 <div class="card-header ">
                                     <h4 class="card-title">Transactions</h4>
                                     <p class="card-category">By: Philip Arland Alili</p>
                                 </div>
-                                <div class="card-body table-full-width table-responsive">
+                                <div class="card-body table-full-width table-responsive" style="padding: 20px;">
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <th>Datelog</th>
