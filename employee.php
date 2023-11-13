@@ -106,7 +106,7 @@
                                 <br />
                                 <div class="col-md-12" style="text-align: end;">
                                     <a href="/employee-add.php" >
-                                        <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-top: 40px; margin-right: 20px;">Add New
+                                        <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-top: 40px; margin-right: 20px; cursor: pointer;">Add New
                                             Employee <i class="nc-icon nc-badge"></i></button>
                                     </a>
                                 </div>
@@ -141,7 +141,7 @@
                                                     <td>
                                                         <a href="/employee-edit.php?id=<?php echo $employee['id']; ?>">
                                                             <button type="submit"
-                                                                class="btn btn-warning btn-fill pull-right" style="background-color: skyblue; border: 2px solid skyblue;">Edit</button>
+                                                                class="btn btn-warning btn-fill pull-right" style="background-color: skyblue; border: 2px solid skyblue; cursor: pointer;">Edit</button>
                                                         </a>
                                                     </td>
                                                 </tr>

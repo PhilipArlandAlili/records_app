@@ -164,7 +164,7 @@
                                             </div>
                                         </div>
                                         <button type="submit" name="submit" value="Submit"
-                                            class="btn btn-info btn-fill pull-right">Save</button>
+                                            class="btn btn-info btn-fill pull-right" style="cursor: pointer;">Save</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

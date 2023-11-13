@@ -103,7 +103,7 @@
                                 <br />
                                 <div class="col-md-12" style="text-align: end;">
                                     <a href="/office-add.php">
-                                        <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-top: 40px; margin-right: 10px;">Add New
+                                        <button type="submit" class="btn btn-info btn-fill pull-right" style="margin-top: 40px; margin-right: 10px; cursor: pointer;">Add New
                                             Office <i class="nc-icon nc-single-copy-04"></i></button>
                                     </a>
                                 </div>
@@ -150,7 +150,7 @@
                                                     <td>
                                                         <a href="/office-edit.php?id=<?php echo $office['id']; ?>">
                                                             <button type="submit"
-                                                                class="btn btn-warning btn-fill pull-right" style="background-color: skyblue; border: 2px solid skyblue;">Edit</button>
+                                                                class="btn btn-warning btn-fill pull-right" style="background-color: skyblue; border: 2px solid skyblue; cursor: pointer;">Edit</button>
                                                         </a>
                                                     </td>
                                                 </tr>

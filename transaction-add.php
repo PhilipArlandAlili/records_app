@@ -78,7 +78,7 @@
                                             <div class="cold-md-3 px-1">
                                                 <div class="form-group">
                                                     <label>Action</label>
-                                                    <select name="action" class="form-control">
+                                                    <select name="action" class="form-control" style="cursor: pointer;">
                                                         <option>IN</option>
                                                         <option>OUT</option>
                                                         <option>COMPLETE</option>
@@ -96,7 +96,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Employee</label>
-                                                    <select name='employee_id' class="form-control">
+                                                    <select name='employee_id' class="form-control" style="cursor: pointer;">
                                                         <option>Select....</option>
                                                         <?php
                                                         $query = "SELECT id, CONCAT(lastname, ', ', firstname) as Employee FROM employee";
@@ -111,7 +111,7 @@
                                             <div class="col-md-6 pr-1">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Office</label>
-                                                    <select name='office_id' class="form-control">
+                                                    <select name='office_id' class="form-control" style="cursor: pointer;">
                                                         <option>Select....</option>
                                                         <?php
                                                         $query = "SELECT id, name FROM office";
@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="row">
                                             <button type="submit" name="submit" value="Submit"
-                                                class="btn btn-info btn-fill pull-right">Save</button>
+                                                class="btn btn-info btn-fill pull-right" style="margin-left: 15px; cursor: pointer;">Save</button>
                                             <div class="clearfix"></div>
                                         </div>
                                     </form>

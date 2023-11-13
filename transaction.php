@@ -112,12 +112,14 @@
                                 <div class="col-md-12" style="text-align: end;">
                                     <form action="transaction.php" method="GET">
                                         <input type="text" name="search" style="margin-top: 30px;">
-                                        <input type="submit" value="Search" class="btn btn-info btn-fill">
+                                        <i class="fa fa-search"></i>
+                                        <input type="submit" value="Search" class="btn btn-info btn-fill" style="cursor: pointer;">
                                     </form>
                                 </div>
                                 <div class="col-md-12" style="text-align: end;">
                                     <a href="/transaction-add.php">
-                                        <button type="submit" class="btn btn-info btn-fill" style="margin-top: 15px;">Add New
+                                        
+                                        <button type="submit" class="btn btn-info btn-fill" style="margin-top: 15px; cursor: pointer;">Add New
                                             Transaction <i class="nc-icon nc-icon nc-delivery-fast"></i></button>
                                     </a>
                                 </div>

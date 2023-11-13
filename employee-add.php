@@ -84,7 +84,7 @@
                                             </div>
                                             <div class="col-md4 pl-1">
                                                 <label for="exampleInputEmail1">Office</label>
-                                                <select name="office" class="form-control">
+                                                <select name="office" class="form-control" style="cursor: pointer;">
                                                     <option value="">Select....</option>
                                                     <?php
                                                     $query = "SELECT id, name FROM office";
@@ -104,7 +104,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" name="submit" value="Submit" class="btn btn-info btn-fill pull-right">Save</button>
+                                        <button type="submit" name="submit" value="Submit" class="btn btn-info btn-fill pull-right" style="cursor: pointer;">Save</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
